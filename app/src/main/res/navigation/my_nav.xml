@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.finalproject.queue.userFragment.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_adminHomeFragment"
+            app:destination="@id/adminHomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.finalproject.queue.userFragment.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_queueFragment"
+            app:destination="@id/queueFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/queueDetailFragment"
+        android:name="com.finalproject.queue.userFragment.QueueDetailFragment"
+        android:label="fragment_queue_detail"
+        tools:layout="@layout/fragment_queue_detail" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.finalproject.queue.userFragment.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_queueDetailFragment"
+            app:destination="@id/queueDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/queueFragment"
+        android:name="com.finalproject.queue.adminFragment.QueueFragment"
+        android:label="fragment_queue"
+        tools:layout="@layout/fragment_queue" />
+    <fragment
+        android:id="@+id/adminHomeFragment"
+        android:name="com.finalproject.queue.adminFragment.AdminHomeFragment"
+        android:label="AdminHomeFragment" >
+        <action
+            android:id="@+id/action_adminHomeFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_adminHomeFragment_to_createQueueFragment"
+            app:destination="@id/createQueueFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.finalproject.queue.userFragment.HistoryFragment"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history" />
+    <fragment
+        android:id="@+id/createQueueFragment"
+        android:name="com.finalproject.queue.adminFragment.CreateQueueFragment"
+        android:label="fragment_create_queue"
+        tools:layout="@layout/fragment_create_queue" />
+</navigation>
