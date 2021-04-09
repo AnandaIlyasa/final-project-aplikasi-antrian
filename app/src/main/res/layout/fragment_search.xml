@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/user_full_background"
     tools:context=".userFragment.SearchFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -11,6 +12,7 @@
     <SearchView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/user_full_background"/>
+        android:layout_margin="10dp"
+        android:outlineAmbientShadowColor="@color/black"/>
 
 </RelativeLayout>
