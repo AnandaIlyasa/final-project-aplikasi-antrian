@@ -3,16 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="24dp"
     android:background="@drawable/user_full_background"
     tools:context=".userFragment.SearchFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
-
     <SearchView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:outlineAmbientShadowColor="@color/black"/>
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/white"
+        android:clickable="true"
+        android:queryHint="Cari layanan antri" />
 
 </RelativeLayout>
