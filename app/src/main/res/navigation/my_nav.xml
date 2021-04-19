@@ -27,7 +27,9 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/my_nav"
+            app:popUpToInclusive="false" />
         <action
             android:id="@+id/action_homeFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
@@ -63,7 +65,9 @@
         android:label="AdminHomeFragment" >
         <action
             android:id="@+id/action_adminHomeFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/my_nav"
+            app:popUpToInclusive="false" />
         <action
             android:id="@+id/action_adminHomeFragment_to_createQueueFragment"
             app:destination="@id/createQueueFragment" />

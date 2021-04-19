@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingStart="24dp"
+    android:paddingEnd="24dp"
     android:background="@drawable/user_full_background"
     tools:context=".userFragment.HistoryFragment">
 
