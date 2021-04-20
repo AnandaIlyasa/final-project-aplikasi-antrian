@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'com.google.gms.google-services'
 }
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
@@ -54,9 +55,13 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'android.arch.navigation:navigation-fragment-ktx:1.0.0'
     implementation 'android.arch.navigation:navigation-ui-ktx:1.0.0'
+    implementation 'com.google.firebase:firebase-auth:20.0.4'
     testImplementation 'junit:junit:4.+'
     implementation "androidx.recyclerview:recyclerview:1.1.0"
     implementation "androidx.cardview:cardview:1.0.0"
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    implementation 'com.google.android.gms:play-services-auth:19.0.0'
+    implementation platform('com.google.firebase:firebase-bom:26.7.0')
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 }
