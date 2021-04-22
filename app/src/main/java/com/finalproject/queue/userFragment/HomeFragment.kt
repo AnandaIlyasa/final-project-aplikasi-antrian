@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentManager
 import androidx.navigation.Navigation
+import com.finalproject.queue.MainActivity
 import com.finalproject.queue.R
 import com.finalproject.queue.databinding.FragmentHomeBinding
 
@@ -44,6 +45,7 @@ class HomeFragment : Fragment() {
         binding.riwayat.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.action_homeFragment_to_historyFragment)
         }
+        binding.nama.text = (activity as MainActivity)!!.mFirebaseAuth.currentUser.displayName
         return binding.root
     }
 

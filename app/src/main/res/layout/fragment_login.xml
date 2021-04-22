@@ -3,33 +3,36 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingLeft="10dp"
+        android:paddingLeft="24dp"
         android:paddingTop="10dp"
-        android:paddingRight="10dp"
+        android:paddingRight="24dp"
         android:paddingBottom="10dp"
         android:background="@drawable/user_full_background"
         tools:context=".userFragment.LoginFragment">
+
+        <ImageView
+            android:id="@+id/user_logo"
+            android:layout_width="300dp"
+            android:layout_height="280dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/idcard" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginBottom="200dp"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/teal_700"
             android:enabled="true"
-            android:textColor="@color/black"
+            android:padding="10dp"
             app:cardCornerRadius="5dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/roles">
+            android:layout_below="@id/roles"
+            android:layout_marginTop="30dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -38,17 +41,40 @@
                 android:padding="10dp">
 
                 <TextView
-                    android:id="@+id/sign"
+                    android:id="@+id/tombol_role"
                     android:layout_width="wrap_content"
+                    android:textColor="@color/white"
                     android:layout_height="wrap_content"
-                    android:text="SIGN IN WITH GOOGLE" />
+                    android:text="Masuk Sebagai USER"/>
 
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_toRightOf="@+id/sign"
-                    android:src="@drawable/iconfinder_logo_brand_brands_logos_google_2993685" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:backgroundTint="#ff5555"
+            android:enabled="true"
+            android:layout_below="@id/login"
+            android:padding="10dp"
+            app:cardCornerRadius="5dp"
+            android:layout_marginTop="30dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|center_horizontal"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/sign_out"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/white"
+                    android:layout_height="wrap_content"
+                    android:text="Sign Out" />
+
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
@@ -60,17 +86,14 @@
             android:gravity="center_horizontal"
             android:orientation="horizontal"
             android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.842"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.459">
+            android:layout_marginTop="380dp">
 
             <RadioButton
                 android:id="@+id/user_role"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="30dp"
+                android:layout_marginEnd="15dp"
                 android:checked="true"
                 android:text="User" />
 
@@ -78,9 +101,11 @@
                 android:id="@+id/admin_role"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:textSize="30dp"
                 android:text="Admin" />
 
         </RadioGroup>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
 </layout>

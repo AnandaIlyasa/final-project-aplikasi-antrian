@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="24dp"
+        android:paddingEnd="24dp"
+        android:paddingStart="24dp"
+        android:background="@drawable/admin_full_background"
+        tools:context=".adminFragment.AdminQueueFragment">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/nomor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            app:cardCornerRadius="12dp"
+            android:backgroundTint="#0000ffff"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="180dp"
+            android:background="@drawable/border">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Diproses"
+                    android:textAlignment="center"
+                    android:textSize="36dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:background="@drawable/border"
+                    android:text="2"
+                    android:textAlignment="center"
+                    android:textSize="80dp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <RelativeLayout
+            android:layout_below="@id/nomor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+            <Button
+                android:id="@+id/next"
+                android:layout_marginStart="20dp"
+                android:layout_width="wrap_content"
+                android:textSize="30dp"
+                android:paddingHorizontal="30dp"
+                android:paddingVertical="10dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/teal_700"
+                android:textColor="@color/white"
+                android:layout_toRightOf="@id/prev"
+                android:text="Next" />
+
+            <Button
+                android:id="@+id/prev"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="30dp"
+                android:paddingHorizontal="30dp"
+                android:paddingVertical="10dp"
+                android:backgroundTint="#ff5555"
+                android:textColor="@color/white"
+                android:text="Prev" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+</layout>

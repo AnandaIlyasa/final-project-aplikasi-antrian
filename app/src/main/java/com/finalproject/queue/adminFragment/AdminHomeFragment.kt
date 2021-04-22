@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
+import com.finalproject.queue.MainActivity
 import com.finalproject.queue.R
 import com.finalproject.queue.databinding.FragmentAdminHomeBinding
 
@@ -31,6 +32,13 @@ class AdminHomeFragment : Fragment() {
         binding.create.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.action_adminHomeFragment_to_createQueueFragment)
         }
+        binding.riwayat.setOnClickListener {
+            Navigation.findNavController(it).navigate(R.id.action_adminHomeFragment_to_adminHistoryFragment)
+        }
+        binding.antrian.setOnClickListener {
+            Navigation.findNavController(it).navigate(R.id.action_adminHomeFragment_to_adminQueueFragment)
+        }
+        binding.nama.text = (activity as MainActivity)!!.mFirebaseAuth.currentUser.displayName
         return binding.root
     }
 }

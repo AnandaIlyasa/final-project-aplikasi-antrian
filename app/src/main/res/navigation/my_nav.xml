@@ -12,11 +12,13 @@
         <action
             android:id="@+id/action_loginFragment_to_homeFragment"
             app:destination="@id/homeFragment"
+            app:enterAnim="@anim/fragment_open_enter"
             app:popUpTo="@id/loginFragment"
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_loginFragment_to_adminHomeFragment"
             app:destination="@id/adminHomeFragment"
+            app:enterAnim="@anim/fragment_open_enter"
             app:popUpTo="@id/loginFragment"
             app:popUpToInclusive="true" />
     </fragment>
@@ -28,37 +30,35 @@
         <action
             android:id="@+id/action_homeFragment_to_loginFragment"
             app:destination="@id/loginFragment"
+            app:enterAnim="@android:anim/slide_in_left"
             app:popUpTo="@id/my_nav"
             app:popUpToInclusive="false" />
         <action
             android:id="@+id/action_homeFragment_to_searchFragment"
-            app:destination="@id/searchFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_queueFragment"
-            app:destination="@id/queueFragment" />
+            app:destination="@id/searchFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popEnterAnim="@android:anim/slide_in_left" />
         <action
             android:id="@+id/action_homeFragment_to_historyFragment"
-            app:destination="@id/historyFragment" />
+            app:destination="@id/historyFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popEnterAnim="@android:anim/slide_in_left" />
+        <action
+            android:id="@+id/action_homeFragment_to_queueFragment"
+            app:destination="@id/queueFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popUpTo="@id/queueFragment"
+            app:popUpToInclusive="true" />
     </fragment>
-    <fragment
-        android:id="@+id/queueDetailFragment"
-        android:name="com.finalproject.queue.userFragment.QueueDetailFragment"
-        android:label="fragment_queue_detail"
-        tools:layout="@layout/fragment_queue_detail" />
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.finalproject.queue.userFragment.SearchFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_search" >
-        <action
-            android:id="@+id/action_searchFragment_to_queueDetailFragment"
-            app:destination="@id/queueDetailFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/queueFragment"
-        android:name="com.finalproject.queue.adminFragment.QueueFragment"
-        android:label="fragment_queue"
-        tools:layout="@layout/fragment_queue" />
+        tools:layout="@layout/fragment_search" />
     <fragment
         android:id="@+id/adminHomeFragment"
         android:name="com.finalproject.queue.adminFragment.AdminHomeFragment"
@@ -66,11 +66,27 @@
         <action
             android:id="@+id/action_adminHomeFragment_to_loginFragment"
             app:destination="@id/loginFragment"
+            app:enterAnim="@android:anim/slide_in_left"
             app:popUpTo="@id/my_nav"
             app:popUpToInclusive="false" />
         <action
             android:id="@+id/action_adminHomeFragment_to_createQueueFragment"
-            app:destination="@id/createQueueFragment" />
+            app:destination="@id/createQueueFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popEnterAnim="@android:anim/slide_in_left" />
+        <action
+            android:id="@+id/action_adminHomeFragment_to_adminHistoryFragment"
+            app:destination="@id/adminHistoryFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popEnterAnim="@android:anim/slide_in_left" />
+        <action
+            android:id="@+id/action_adminHomeFragment_to_adminQueueFragment"
+            app:destination="@id/adminQueueFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popEnterAnim="@android:anim/slide_in_left" />
     </fragment>
     <fragment
         android:id="@+id/historyFragment"
@@ -82,4 +98,18 @@
         android:name="com.finalproject.queue.adminFragment.CreateQueueFragment"
         android:label="fragment_create_queue"
         tools:layout="@layout/fragment_create_queue" />
+    <fragment
+        android:id="@+id/adminHistoryFragment"
+        android:name="com.finalproject.queue.adminFragment.AdminHistoryFragment"
+        android:label="fragment_admin_history"
+        tools:layout="@layout/fragment_admin_history" />
+    <fragment
+        android:id="@+id/queueFragment"
+        android:name="com.finalproject.queue.userFragment.QueueFragment"
+        android:label="fragment_queue"
+        tools:layout="@layout/fragment_queue" />
+    <fragment
+        android:id="@+id/adminQueueFragment"
+        android:name="com.finalproject.queue.adminFragment.AdminQueueFragment"
+        android:label="AdminQueueFragment" />
 </navigation>

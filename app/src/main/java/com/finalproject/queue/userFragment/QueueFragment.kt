@@ -9,17 +9,22 @@ import com.finalproject.queue.R
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+private const val ARG_PARAM1 = "param1"
+private const val ARG_PARAM2 = "param2"
+
 /**
  * A simple [Fragment] subclass.
- * Use the [QueueDetailFragment.newInstance] factory method to
+ * Use the [QueueFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class QueueDetailFragment : Fragment() {
-    // TODO: Rename and change types of parameters
+class QueueFragment : Fragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_queue_detail, container, false)
+        return inflater.inflate(R.layout.fragment_queue, container, false)
     }
 }

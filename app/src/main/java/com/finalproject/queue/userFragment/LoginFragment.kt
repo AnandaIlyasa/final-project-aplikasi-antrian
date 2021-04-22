@@ -20,6 +20,7 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_login.view.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -40,6 +41,15 @@ class LoginFragment : Fragment() {
             } else if (binding.adminRole.isChecked){
                 Navigation.findNavController(it).navigate(R.id.action_loginFragment_to_adminHomeFragment)
             }
+        }
+        binding.roles.setOnCheckedChangeListener { radioGroup, i ->
+            when(radioGroup.checkedRadioButtonId){
+                binding.adminRole.id -> binding.tombolRole.text = "Masuk Sebagai ADMIN"
+                else -> binding.tombolRole.text = "Masuk Sebagai USER"
+            }
+        }
+        binding.logout.setOnClickListener {
+            (activity as MainActivity)!!.signOut()
         }
         Log.i("info", "oncreateview")
         return binding.root

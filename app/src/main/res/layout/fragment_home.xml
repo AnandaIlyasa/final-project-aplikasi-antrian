@@ -18,15 +18,27 @@
             android:layout_height="102dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="40dp"
-            android:src="@drawable/baseline_person_24" />
+            android:src="@drawable/user" />
         <TextView
             android:id="@+id/header_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pengguna"
+            android:text="[ User ]"
+            android:layout_marginTop="10dp"
             android:textColor="@color/black"
-            android:textSize="34dp"
+            android:textSize="24dp"
             android:layout_below="@id/user_logo"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/nama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Spongebob Squarepants"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:textSize="32dp"
+            android:layout_below="@id/header_title"
             android:layout_centerHorizontal="true"/>
 
         <GridLayout
@@ -37,7 +49,7 @@
             android:columnCount="2"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="60dp"
             android:layout_marginBottom="140dp">
 
             <androidx.cardview.widget.CardView
@@ -64,7 +76,7 @@
                     <ImageView
                         android:layout_width="75dp"
                         android:layout_height="60dp"
-                        android:src="@drawable/baseline_search_24" />
+                        android:src="@drawable/search" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -98,7 +110,7 @@
                     <ImageView
                         android:layout_width="75dp"
                         android:layout_height="60dp"
-                        android:src="@drawable/baseline_people_24" />
+                        android:src="@drawable/tubequeue" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -130,8 +142,8 @@
 
                     <ImageView
                         android:layout_width="75dp"
-                        android:layout_height="60dp"
-                        android:src="@drawable/baseline_history_24" />
+                        android:layout_height="50dp"
+                        android:src="@drawable/history" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -164,7 +176,7 @@
                     <ImageView
                         android:layout_width="75dp"
                         android:layout_height="60dp"
-                        android:src="@drawable/baseline_logout_24" />
+                        android:src="@drawable/logout" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
