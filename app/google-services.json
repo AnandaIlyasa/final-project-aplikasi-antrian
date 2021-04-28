@@ -7,14 +7,14 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:623644371927:android:584e68356b273c1d7c7992",
+        "mobilesdk_app_id": "1:623644371927:android:a55e3967f238e7a57c7992",
         "android_client_info": {
           "package_name": "com.finalproject.queue"
         }
       },
       "oauth_client": [
         {
-          "client_id": "623644371927-ogic035116tb1th9uit4rjhj3fpn15ub.apps.googleusercontent.com",
+          "client_id": "623644371927-4lvjv8olalac59m67pm1m07chn8l7rqs.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.finalproject.queue",
