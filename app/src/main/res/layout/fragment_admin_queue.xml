@@ -2,6 +2,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="adminQueueViewModel"
+            type="com.finalproject.queue.viewmodel.AdminQueueViewModel" />
+    </data>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -10,6 +17,18 @@
         android:paddingStart="24dp"
         android:background="@drawable/admin_full_background"
         tools:context=".adminFragment.AdminQueueFragment">
+
+        <Button
+            android:id="@+id/tutup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#ff5555"
+            android:paddingHorizontal="24dp"
+            android:layout_marginStart="210dp"
+            android:paddingVertical="10dp"
+            android:text="tutup"
+            android:textColor="@color/white"
+            android:textSize="14dp" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/nomor"
@@ -43,7 +62,7 @@
                     android:layout_height="wrap_content"
                     android:paddingBottom="10dp"
                     android:background="@drawable/border"
-                    android:text="2"
+                    android:text="@{String.valueOf(adminQueueViewModel.nomor)}"
                     android:textAlignment="center"
                     android:textSize="80dp" />
             </LinearLayout>
@@ -58,24 +77,26 @@
                 android:id="@+id/next"
                 android:layout_marginStart="20dp"
                 android:layout_width="wrap_content"
-                android:textSize="30dp"
-                android:paddingHorizontal="30dp"
+                android:textSize="22dp"
+                android:paddingHorizontal="24dp"
                 android:paddingVertical="10dp"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/teal_700"
                 android:textColor="@color/white"
                 android:layout_toRightOf="@id/prev"
+                android:onClick="@{() -> adminQueueViewModel.next()}"
                 android:text="Next" />
 
             <Button
                 android:id="@+id/prev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="30dp"
-                android:paddingHorizontal="30dp"
+                android:textSize="22dp"
+                android:paddingHorizontal="24dp"
                 android:paddingVertical="10dp"
                 android:backgroundTint="#ff5555"
                 android:textColor="@color/white"
+                android:onClick="@{() -> adminQueueViewModel.prev()}"
                 android:text="Prev" />
         </RelativeLayout>
 

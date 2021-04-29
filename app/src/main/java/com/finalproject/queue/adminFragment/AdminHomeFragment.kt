@@ -6,10 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.finalproject.queue.MainActivity
 import com.finalproject.queue.R
 import com.finalproject.queue.databinding.FragmentAdminHomeBinding
+import com.finalproject.queue.userFragment.LoginFragment
+import com.finalproject.queue.viewmodel.LoginViewModel
+import kotlinx.android.synthetic.main.activity_main.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

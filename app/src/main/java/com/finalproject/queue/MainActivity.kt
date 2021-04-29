@@ -9,8 +9,10 @@ import android.util.Log
 import android.view.*
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.finalproject.queue.databinding.ActivityMainBinding
+import com.finalproject.queue.viewmodel.LoginViewModel
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -22,9 +24,7 @@ class MainActivity : AppCompatActivity() {
     private val TAG = "MainActivity"
     private lateinit var mSharedPreferences: SharedPreferences
     private lateinit var mSignInClient: GoogleSignInClient
-
     private lateinit var mBinding: ActivityMainBinding
-
     // Firebase instance variables
     lateinit var mFirebaseAuth: FirebaseAuth
 
@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
 
         // Initialize Realtime Database
 
-
+        Log.i("info", "activity oncreate")
 
         // Disable the send button when there's no text in the input field
         // See MyButtonObserver.java for details
@@ -76,6 +76,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
+        Log.i("info", "activity ondestroy")
     }
 
     fun signOut() {

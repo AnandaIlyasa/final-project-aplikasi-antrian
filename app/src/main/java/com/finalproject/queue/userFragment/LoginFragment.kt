@@ -9,10 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.finalproject.queue.MainActivity
 import com.finalproject.queue.R
 import com.finalproject.queue.databinding.FragmentLoginBinding
+import com.finalproject.queue.viewmodel.LoginViewModel
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -29,16 +31,25 @@ import kotlinx.android.synthetic.main.fragment_login.view.*
 class LoginFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private lateinit var binding: FragmentLoginBinding
+    private lateinit var viewModel: LoginViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
+        viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
+        if(viewModel.isUser){
+            this.view?.let { Navigation.findNavController(it).navigate(R.id.action_loginFragment_to_homeFragment) }
+        } else if (viewModel.isAdmin){
+            this.view?.let { Navigation.findNavController(it).navigate(R.id.action_loginFragment_to_adminHomeFragment) }
+        }
         binding.login.setOnClickListener {
             if(binding.userRole.isChecked){
+                viewModel.isUser = true
                 Navigation.findNavController(it).navigate(R.id.action_loginFragment_to_homeFragment)
             } else if (binding.adminRole.isChecked){
+                viewModel.isAdmin = true
                 Navigation.findNavController(it).navigate(R.id.action_loginFragment_to_adminHomeFragment)
             }
         }
@@ -51,8 +62,17 @@ class LoginFragment : Fragment() {
         binding.logout.setOnClickListener {
             (activity as MainActivity)!!.signOut()
         }
-        Log.i("info", "oncreateview")
+        Log.i("info", "login oncreateview")
         return binding.root
+    }
+
+    fun userExit(){
+        viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
+        viewModel.isUser = false
+    }
+    fun adminExit(){
+        viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
+        viewModel.isAdmin = false
     }
 
     override fun onStart() {
@@ -65,5 +85,18 @@ class LoginFragment : Fragment() {
         Log.i("info", "onpause")
     }
 
+    override fun onResume() {
+        super.onResume()
+        Log.i("info", "login onresume")
+    }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i("info", "login fragment destroyed")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.i("info", "login onstop")
+    }
 }
