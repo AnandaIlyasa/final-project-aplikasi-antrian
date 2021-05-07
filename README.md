@@ -1,0 +1,2 @@
+# final-project-aplikasi-antrian
+Aplikasi memungkinkan tempat pelayanan yang biasa menerapkan antrian untuk memberikan kemudahan bagi pelanggannya dengan menyediakan platform sebaagi tempat pengambilan nomor antrian secara online. Selain itu dari sisi pelanggan, pelanggan tidak hanya bisa mengambil nomor antrian namun dapat melihat momor antrian yang sedang di proses di tempat pelayanan. Aplikasi ini sangat cocok terutama untuk menghindari kerumunan di tmpat pelayanan saat menunggu antrian pelayanan
