@@ -1,5 +1,7 @@
 package com.finalproject.queue
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.SharedPreferences
 import android.net.Uri
@@ -10,6 +12,7 @@ import android.view.*
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.finalproject.queue.databinding.ActivityMainBinding
 import com.finalproject.queue.viewmodel.LoginViewModel
@@ -19,6 +22,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class MainActivity : AppCompatActivity() {
     private val TAG = "MainActivity"
@@ -27,6 +32,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mBinding: ActivityMainBinding
     // Firebase instance variables
     lateinit var mFirebaseAuth: FirebaseAuth
+    var nodeRef: DatabaseReference = FirebaseDatabase.getInstance().reference
+    var adaAntrian: Boolean = false
+    lateinit var dataAntrian: Antrian
+    var diHome: Boolean = false
+    var diAntrian: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +47,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(mBinding.getRoot())
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
 
+        if (!diAntrian){
+            hapusAntrian()
+        }
         // Initialize Firebase Auth and check if the user is signed in
         mFirebaseAuth = FirebaseAuth.getInstance()
         if (mFirebaseAuth!!.currentUser == null) {
@@ -76,7 +89,26 @@ class MainActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
+        adaAntrian = false
+        hapusAntrian()
         Log.i("info", "activity ondestroy")
+    }
+
+    fun createQueue(data: Antrian){
+        dataAntrian = data
+        nodeRef.child(data.nama).setValue(data).addOnCompleteListener {
+            Log.i("Main", "berhasil menambahkan ke database")
+            adaAntrian = true
+        }.addOnFailureListener {
+            Log.i("Main", "Gagal menambahkan ke database")
+        }
+    }
+
+    fun hapusAntrian(){
+        if (adaAntrian){
+            adaAntrian = false
+            nodeRef.child(dataAntrian.nama).removeValue()
+        }
     }
 
     fun signOut() {
@@ -84,5 +116,25 @@ class MainActivity : AppCompatActivity() {
         mSignInClient!!.signOut()
         startActivity(Intent(this, SignInActivity::class.java))
         finish()
+    }
+
+    override fun onBackPressed() {
+        if (diHome){
+            val builder: AlertDialog.Builder = AlertDialog.Builder(this)
+            builder.setTitle("Keluar dan Hapus Antrian ?")
+            builder.setCancelable(false)
+            builder.setPositiveButton("Ya", DialogInterface.OnClickListener { _, i ->
+                hapusAntrian()
+                Navigation.findNavController(mBinding.root).popBackStack()
+            })
+            builder.setNegativeButton("Tidak", DialogInterface.OnClickListener { dialogInterface, i ->
+                dialogInterface.cancel()
+            })
+            val alertDialog = builder.create()
+            alertDialog.show()
+        }
+        else{
+            super.onBackPressed()
+        }
     }
 }

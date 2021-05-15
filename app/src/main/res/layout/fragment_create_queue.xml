@@ -27,14 +27,14 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/instansi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:background="@drawable/border"
             android:hint="Nama Instansi (Maks. 20 Karakter)"
             android:lines="2"
-            android:maxLength="10"
+            android:maxLength="20"
             android:paddingStart="10dp"
             app:layout_constraintBottom_toTopOf="@+id/deskripsi"
             app:layout_constraintEnd_toEndOf="parent"

@@ -97,7 +97,13 @@
         android:id="@+id/createQueueFragment"
         android:name="com.finalproject.queue.adminFragment.CreateQueueFragment"
         android:label="fragment_create_queue"
-        tools:layout="@layout/fragment_create_queue" />
+        tools:layout="@layout/fragment_create_queue" >
+        <action
+            android:id="@+id/action_createQueueFragment_to_adminQueueFragment"
+            app:destination="@id/adminQueueFragment"
+            app:popUpTo="@id/createQueueFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
     <fragment
         android:id="@+id/adminHistoryFragment"
         android:name="com.finalproject.queue.adminFragment.AdminHistoryFragment"

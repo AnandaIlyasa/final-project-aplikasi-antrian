@@ -84,7 +84,6 @@
                 android:backgroundTint="@color/teal_700"
                 android:textColor="@color/white"
                 android:layout_toRightOf="@id/prev"
-                android:onClick="@{() -> adminQueueViewModel.next()}"
                 android:text="Next" />
 
             <Button
@@ -96,7 +95,6 @@
                 android:paddingVertical="10dp"
                 android:backgroundTint="#ff5555"
                 android:textColor="@color/white"
-                android:onClick="@{() -> adminQueueViewModel.prev()}"
                 android:text="Prev" />
         </RelativeLayout>
 

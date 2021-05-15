@@ -5,8 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
+import com.finalproject.queue.Antrian
+import com.finalproject.queue.MainActivity
 import com.finalproject.queue.R
 import com.finalproject.queue.databinding.FragmentCreateQueueBinding
 
@@ -28,6 +31,14 @@ class CreateQueueFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_create_queue, container, false)
         binding.batal.setOnClickListener {
             Navigation.findNavController(it).popBackStack()
+        }
+        binding.buat.setOnClickListener {
+            val data = Antrian(binding.instansi.text.toString(), binding.deskripsi.text.toString())
+            (activity as MainActivity)!!.createQueue(data)
+            binding.instansi.text.clear()
+            binding.deskripsi.text.clear()
+            Toast.makeText(context, "Antrian Berhasil Dibuat", Toast.LENGTH_SHORT).show()
+            Navigation.findNavController(it).navigate(R.id.action_createQueueFragment_to_adminQueueFragment)
         }
         return binding.root
     }
