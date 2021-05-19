@@ -1,22 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="24dp"
-    android:background="@drawable/user_full_background"
-    tools:context=".userFragment.SearchFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-
-    <SearchView
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="10dp"
-        android:background="@color/white"
-        android:clickable="true"
-        android:queryHint="search queue" />
+        android:layout_height="match_parent"
+        android:padding="24dp"
+        android:background="@drawable/user_full_background"
+        tools:context=".userFragment.SearchFragment">
 
-</RelativeLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/search_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="10dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="10dp">
+            <SearchView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:background="@color/white"
+                android:clickable="true"
+                android:queryHint="search queue" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_below="@+id/search_bar"
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+</layout>

@@ -3,5 +3,12 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="sign_in">sign in</string>
-<!--        <string name="default_web_client_id">19032415776-1s3um3ki9j7m47nf3sga4ija9emf1b07.apps.googleusercontent.com</string>-->
+
+    <string-array name="antrian">
+        <item>bni tplus empat enam</item>
+        <item>bni tplus empat enam</item>
+        <item>bni tplus empat enam</item>
+        <item>bni tplus empat enam</item>
+        <item>bni tplus empat enam</item>
+    </string-array>
 </resources>

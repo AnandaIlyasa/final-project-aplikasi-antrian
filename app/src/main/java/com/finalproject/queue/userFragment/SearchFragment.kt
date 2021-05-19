@@ -1,60 +1,70 @@
 package com.finalproject.queue.userFragment
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.finalproject.queue.Antrian
+import com.finalproject.queue.MyAdapter
 import com.finalproject.queue.R
+import com.finalproject.queue.databinding.FragmentSearchBinding
+import com.google.firebase.database.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [SearchFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class SearchFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var binding: FragmentSearchBinding
+//    val bank = resources.getStringArray(R.array.antrian)
+    private var antrian = ArrayList<Antrian?>()
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var database: DatabaseReference
+    private lateinit var adapter: MyAdapter
 
+    @SuppressLint("WrongConstant")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_search, container, false)
-    }
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_search, container, false)
+        recyclerView = binding.list
+        recyclerView.layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SearchFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SearchFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+        database = FirebaseDatabase.getInstance().reference
+
+        var list = ArrayList<Antrian>()
+
+        adapter = MyAdapter(context, list)
+
+        recyclerView.adapter = adapter
+
+        database.addValueEventListener(object :
+                ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                if (dataSnapshot.exists()){
+                    for (data in dataSnapshot.children){
+                        var nama = data.child("nama").value.toString()
+                        var deskripsi = data.child("deskripsi").value.toString()
+                        var nomor = data.child("nomor").getValue(Int::class.java)
+                        var jumlah = data.child("jumlah").getValue(Int::class.java)
+                        list.add(Antrian(nama, deskripsi, nomor, jumlah))
+                    }
+                    adapter.notifyDataSetChanged()
                 }
             }
+            override fun onCancelled(error: DatabaseError) {
+                // Failed to read value
+                Log.i("Admin", "Failed to read value.", error.toException())
+            }
+        })
+
+        return binding.root
     }
 }
