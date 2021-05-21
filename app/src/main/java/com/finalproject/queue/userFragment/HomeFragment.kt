@@ -1,5 +1,7 @@
 package com.finalproject.queue.userFragment
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -16,19 +18,8 @@ import com.finalproject.queue.databinding.FragmentHomeBinding
 import com.finalproject.queue.viewmodel.LoginViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [HomeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 @Suppress("DEPRECATION")
 class HomeFragment : Fragment() {
-    // TODO: Rename and change types of parameters
     private lateinit var binding: FragmentHomeBinding
 
     override fun onCreateView(
@@ -40,7 +31,23 @@ class HomeFragment : Fragment() {
             Navigation.findNavController(it).navigate(R.id.action_homeFragment_to_loginFragment)
         }
         binding.antrianku.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.action_homeFragment_to_queueFragment)
+            if((activity as MainActivity)!!.dataUser?.equals(null)!!){
+                val builder: AlertDialog.Builder = AlertDialog.Builder(this.activity)
+                builder.setTitle("Anda Belum Mengambil Antrian")
+                builder.setMessage("Cari Antrian ?")
+                builder.setCancelable(false)
+                builder.setPositiveButton("Ya", DialogInterface.OnClickListener { _, i ->
+                    Navigation.findNavController(binding.antrianku).navigate(R.id.action_homeFragment_to_searchFragment)
+                })
+                builder.setNegativeButton("Tidak", DialogInterface.OnClickListener { dialogInterface, i ->
+                    dialogInterface.cancel()
+                })
+                val alertDialog = builder.create()
+                alertDialog.show()
+            }
+            else{
+                Navigation.findNavController(it).navigate(R.id.action_homeFragment_to_queueFragment)
+            }
         }
         binding.cari.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.action_homeFragment_to_searchFragment)
@@ -50,25 +57,5 @@ class HomeFragment : Fragment() {
         }
         binding.nama.text = (activity as MainActivity)!!.mFirebaseAuth.currentUser.displayName
         return binding.root
-    }
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment HomeFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            HomeFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
     }
 }

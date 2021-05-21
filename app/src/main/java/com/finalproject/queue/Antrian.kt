@@ -1,3 +1,5 @@
 package com.finalproject.queue
 
-data class Antrian(var nama: String, var deskripsi: String, var nomor: Int? = 0, var jumlah: Int? = 0)
+import java.io.Serializable
+
+data class Antrian(var nama: String, var deskripsi: String, var nomor: Int? = 0, var jumlah: Int? = 0) : Serializable

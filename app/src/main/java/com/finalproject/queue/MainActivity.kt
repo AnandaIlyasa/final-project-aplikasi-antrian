@@ -37,6 +37,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var dataAntrian: Antrian
     var diHome: Boolean = false
     var diAntrian: Boolean = false
+    var userDiAntrian: Boolean = false
+    var dataUser: Antrian? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

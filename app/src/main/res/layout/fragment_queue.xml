@@ -1,103 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingTop="24dp"
-    android:paddingEnd="24dp"
-    android:paddingStart="24dp"
-    android:background="@drawable/user_full_background"
-    tools:context=".userFragment.QueueFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!-- TODO: Update blank fragment layout -->
+    <data>
+        <variable
+            name="queueViewModel"
+            type="com.finalproject.queue.viewmodel.QueueViewModel" />
+    </data>
 
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Antrian Saya"
-        android:background="@drawable/border"
-        android:textColor="@color/black"
-        android:padding="5dp"
-        android:elevation="10dp"
-        android:textAlignment="center"
-        android:textSize="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent"
+        android:paddingTop="24dp"
+        android:paddingEnd="24dp"
+        android:paddingStart="24dp"
+        android:background="@drawable/user_full_background"
+        tools:context=".userFragment.QueueFragment">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="100dp"
-        android:backgroundTint="#0000ffff"
-        android:layout_centerHorizontal="true"
-        app:cardCornerRadius="8dp">
+        <!-- TODO: Update blank fragment layout -->
 
-        <LinearLayout
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Antrian Saya"
+            android:background="@drawable/border"
+            android:textColor="@color/black"
+            android:padding="5dp"
+            android:elevation="10dp"
+            android:textAlignment="center"
+            android:textSize="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|center_horizontal"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="100dp"
+            android:backgroundTint="#0000ffff"
+            android:layout_centerHorizontal="true"
+            app:cardCornerRadius="8dp">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:text="No Saya"
-                android:textAlignment="center"
-                android:textSize="22dp"
-                android:textStyle="bold" />
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:gravity="center"
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/border"
-                android:text="26"
-                android:textAlignment="center"
-                android:textSize="60dp" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="No Saya"
+                    android:textAlignment="center"
+                    android:textSize="22dp"
+                    android:textStyle="bold" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="12dp"
-        android:backgroundTint="#0000ffff"
-        android:layout_below="@id/cardView2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/border">
+                <TextView
+                    android:id="@+id/no_saya"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border"
+                    android:text="26"
+                    android:textAlignment="center"
+                    android:textSize="60dp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-        <LinearLayout
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|center_horizontal"
-            android:gravity="center"
-            android:orientation="vertical">
+            app:cardCornerRadius="12dp"
+            android:backgroundTint="#0000ffff"
+            android:layout_below="@id/cardView2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/border">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="Diproses"
-                android:textAlignment="center"
-                android:textSize="36dp"
-                android:textStyle="bold" />
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:gravity="center"
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
-                android:background="@drawable/border"
-                android:text="2"
-                android:textAlignment="center"
-                android:textSize="80dp" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Diproses"
+                    android:textAlignment="center"
+                    android:textSize="36dp"
+                    android:textStyle="bold" />
 
-</RelativeLayout>
+                <TextView
+                    android:id="@+id/diproses"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:background="@drawable/border"
+                    android:textAlignment="center"
+                    android:textSize="80dp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+</layout>
