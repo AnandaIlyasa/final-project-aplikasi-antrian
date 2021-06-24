@@ -30,15 +30,67 @@
             android:textColor="@color/white"
             android:textSize="14dp" />
 
+        <TextView
+            android:id="@+id/nama"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:layout_below="@id/tutup"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:text="@{adminQueueViewModel.nama}"
+            android:textAlignment="center"
+            android:textSize="42dp"
+            android:textStyle="bold"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/jumlah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            android:layout_below="@+id/nama"
+            android:backgroundTint="#0000ffff"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/border">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="Jumlah"
+                    android:textAlignment="center"
+                    android:textSize="22dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border"
+                    android:text="@{String.valueOf(adminQueueViewModel.jumlah)}"
+                    android:textAlignment="center"
+                    android:textSize="50dp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
         <androidx.cardview.widget.CardView
             android:id="@+id/nomor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="50dp"
             app:cardCornerRadius="12dp"
+            android:layout_below="@+id/jumlah"
             android:backgroundTint="#0000ffff"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="180dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/border">
 
             <LinearLayout
@@ -54,7 +106,7 @@
                     android:padding="10dp"
                     android:text="Diproses"
                     android:textAlignment="center"
-                    android:textSize="36dp"
+                    android:textSize="28dp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -64,7 +116,7 @@
                     android:background="@drawable/border"
                     android:text="@{String.valueOf(adminQueueViewModel.nomor)}"
                     android:textAlignment="center"
-                    android:textSize="80dp" />
+                    android:textSize="60dp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 

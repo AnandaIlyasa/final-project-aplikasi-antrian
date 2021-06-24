@@ -31,7 +31,7 @@ class HomeFragment : Fragment() {
             Navigation.findNavController(it).navigate(R.id.action_homeFragment_to_loginFragment)
         }
         binding.antrianku.setOnClickListener {
-            if((activity as MainActivity)!!.dataUser?.equals(null)!!){
+            if((activity as MainActivity)!!.dataUser == null){
                 val builder: AlertDialog.Builder = AlertDialog.Builder(this.activity)
                 builder.setTitle("Anda Belum Mengambil Antrian")
                 builder.setMessage("Cari Antrian ?")

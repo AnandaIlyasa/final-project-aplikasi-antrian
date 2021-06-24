@@ -45,7 +45,7 @@ class AdminQueueFragment : Fragment() {
         binding.adminQueueViewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
         ref = FirebaseDatabase.getInstance().reference
-        data = (activity as MainActivity).dataAntrian
+        data = (activity as MainActivity).dataAntrian!!
         if ((activity as MainActivity)!!.diAntrian){
             ref.child(data.nama).child("nomor").addValueEventListener(object :
                     ValueEventListener {
@@ -53,6 +53,32 @@ class AdminQueueFragment : Fragment() {
                     // This method is called once with the initial value and again
                     // whenever data at this location is updated.
                     viewModel._nomor.value = dataSnapshot.getValue(Int::class.java)
+                }
+                override fun onCancelled(error: DatabaseError) {
+                    // Failed to read value
+                    Log.i("Admin", "Failed to read value.", error.toException())
+                }
+            })
+
+            ref.child(data.nama).child("jumlah").addValueEventListener(object :
+                    ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    // This method is called once with the initial value and again
+                    // whenever data at this location is updated.
+                    viewModel._jumlah.value = dataSnapshot.getValue(Int::class.java)
+                }
+                override fun onCancelled(error: DatabaseError) {
+                    // Failed to read value
+                    Log.i("Admin", "Failed to read value.", error.toException())
+                }
+            })
+
+            ref.child(data.nama).child("nama").addValueEventListener(object :
+                    ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    // This method is called once with the initial value and again
+                    // whenever data at this location is updated.
+                    viewModel._nama.value = dataSnapshot.getValue(String::class.java)
                 }
                 override fun onCancelled(error: DatabaseError) {
                     // Failed to read value

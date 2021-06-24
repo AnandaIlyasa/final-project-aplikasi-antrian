@@ -17,6 +17,14 @@ class AdminQueueViewModel : ViewModel() {
     val _nomor = MutableLiveData<Int>()
     val nomor: LiveData<Int>
         get() = _nomor
+
+    val _jumlah = MutableLiveData<Int>()
+    val jumlah: LiveData<Int>
+        get() = _jumlah
+
+    val _nama = MutableLiveData<String>()
+    val nama: LiveData<String>
+        get() = _nama
     init {
 
     }

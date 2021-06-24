@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var mFirebaseAuth: FirebaseAuth
     var nodeRef: DatabaseReference = FirebaseDatabase.getInstance().reference
     var adaAntrian: Boolean = false
-    lateinit var dataAntrian: Antrian
+    var dataAntrian: Antrian? =  null
     var diHome: Boolean = false
     var diAntrian: Boolean = false
     var userDiAntrian: Boolean = false
@@ -109,7 +109,8 @@ class MainActivity : AppCompatActivity() {
     fun hapusAntrian(){
         if (adaAntrian){
             adaAntrian = false
-            nodeRef.child(dataAntrian.nama).removeValue()
+            dataUser = null
+            dataAntrian?.nama?.let { nodeRef.child(it).removeValue() }
         }
     }
 

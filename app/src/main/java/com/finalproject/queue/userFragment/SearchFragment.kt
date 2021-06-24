@@ -108,23 +108,37 @@ class SearchFragment : Fragment(), MyAdapter.OnItemClickListener {
 
     override fun onItemClick(item: Antrian) {
         val builder: AlertDialog.Builder = AlertDialog.Builder(this.activity)
-        builder.setTitle("Mengambil Antrian")
-        builder.setMessage("Instansi : ${item.nama}\n" +
-                "Sedang Diproses : ${item.nomor}\n" +
-                "Nomor Anda : ${item.jumlah?.plus(1)}")
-        builder.setCancelable(false)
-        builder.setPositiveButton("Ya", DialogInterface.OnClickListener { _, i ->
-            database.child(item.nama).child("jumlah").get().addOnSuccessListener {
-                viewModel._jumlah.value = it.getValue(Int::class.java)
-                viewModel.tambah(item)
-                adapter.notifyDataSetChanged()
-            }
-            (activity as MainActivity)!!.dataUser = item
-            binding.searchBar.findNavController().navigate(R.id.action_searchFragment_to_queueFragment)
-        })
-        builder.setNegativeButton("Tidak", DialogInterface.OnClickListener { dialogInterface, i ->
-            dialogInterface.cancel()
-        })
+        if((activity as MainActivity)!!.dataUser == null){
+            builder.setTitle("Mengambil Antrian")
+            builder.setMessage("Instansi : ${item.nama}\n" +
+                    "Sedang Diproses : ${item.nomor}\n" +
+                    "Nomor Anda : ${item.jumlah?.plus(1)}")
+            builder.setCancelable(false)
+            builder.setPositiveButton("Ya", DialogInterface.OnClickListener { _, i ->
+                database.child(item.nama).child("jumlah").get().addOnSuccessListener {
+                    viewModel._jumlah.value = it.getValue(Int::class.java)
+                    viewModel.tambah(item)
+                    adapter.notifyDataSetChanged()
+                }
+                (activity as MainActivity)!!.dataUser = item
+                binding.searchBar.findNavController().navigate(R.id.action_searchFragment_to_queueFragment)
+            })
+            builder.setNegativeButton("Tidak", DialogInterface.OnClickListener { dialogInterface, i ->
+                dialogInterface.cancel()
+            })
+        } else{
+            builder.setTitle("Anda sudah mempunyai antrian")
+            builder.setMessage("Kembali ke antrian yang sudah ada ?")
+            builder.setCancelable(false)
+            builder.setPositiveButton("Ya", DialogInterface.OnClickListener { dialogInterface, i ->
+                dialogInterface.cancel()
+                binding.searchBar.findNavController().navigate(R.id.action_searchFragment_to_queueFragment)
+            })
+            builder.setNegativeButton("Tidak", DialogInterface.OnClickListener { dialogInterface, i ->
+                dialogInterface.cancel()
+            })
+        }
+
         val alertDialog = builder.create()
         alertDialog.show()
     }
