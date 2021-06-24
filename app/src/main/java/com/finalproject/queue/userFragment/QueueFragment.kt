@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -39,12 +40,15 @@ class QueueFragment : Fragment() {
 
         database?.child(data!!.nama)?.child("nomor")?.addValueEventListener(object :
                 ValueEventListener {
-            @RequiresApi(Build.VERSION_CODES.N)
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 viewModel._nomor.value = dataSnapshot.getValue(Int::class.java)
                 binding.diproses.text = viewModel._nomor.value.toString()
+                if(viewModel._nomor.value == null){
+                    Navigation.findNavController(binding.diproses).popBackStack()
+                    Toast.makeText(context, "Admin menutup antrian...", Toast.LENGTH_SHORT).show()
+                }
             }
 
             override fun onCancelled(error: DatabaseError) {

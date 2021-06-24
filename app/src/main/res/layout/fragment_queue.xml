@@ -22,26 +22,27 @@
 
         <TextView
             android:id="@+id/nama"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{queueViewModel.nama}"
-            android:background="@drawable/border"
             android:textColor="@color/black"
-            android:padding="5dp"
+            android:drawableEnd="@drawable/outline_maps_home_work_24"
+            android:drawableStart="@drawable/outline_maps_home_work_24"
+            android:drawablePadding="15dp"
+            android:layout_marginTop="20dp"
             android:elevation="10dp"
             android:textAlignment="center"
             android:textSize="40dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_centerHorizontal="true"/>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="#A9A9A9"
+            app:cardElevation="8dp"
             android:layout_marginStart="40dp"
-            android:layout_marginTop="100dp"
-            android:backgroundTint="#0000ffff"
+            android:layout_marginTop="150dp"
             android:layout_centerHorizontal="true"
             app:cardCornerRadius="8dp">
 
@@ -56,7 +57,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
-                    android:text="No Saya"
+                    android:text="Nomorku"
+                    android:textColor="@color/white"
                     android:textAlignment="center"
                     android:textSize="22dp"
                     android:textStyle="bold" />
@@ -66,6 +68,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/border"
+                    android:textColor="@color/black"
                     android:text="26"
                     android:textAlignment="center"
                     android:textSize="60dp" />
@@ -77,9 +80,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:cardCornerRadius="12dp"
-            android:backgroundTint="#0000ffff"
             android:layout_below="@id/cardView2"
             android:layout_centerHorizontal="true"
+            android:backgroundTint="#808080"
+            app:cardElevation="10dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/border">
 
@@ -94,6 +98,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
+                    android:textColor="@color/black"
                     android:text="Diproses"
                     android:textAlignment="center"
                     android:textSize="36dp"
@@ -105,7 +110,10 @@
                     android:layout_height="wrap_content"
                     android:paddingBottom="10dp"
                     android:background="@drawable/border"
+                    android:textColor="@color/white"
+                    android:text="33"
                     android:textAlignment="center"
+                    android:backgroundTint="@color/black"
                     android:textSize="80dp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>

@@ -32,12 +32,16 @@
 
         <TextView
             android:id="@+id/nama"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
             android:layout_below="@id/tutup"
-            android:paddingTop="10dp"
-            android:paddingRight="10dp"
+            android:layout_marginTop="30dp"
+            android:textColor="@color/black"
+            android:drawablePadding="15dp"
+            android:layout_centerHorizontal="true"
+            android:drawableRight="@drawable/outline_maps_home_work_24"
+            android:drawableLeft="@drawable/outline_maps_home_work_24"
             android:text="@{adminQueueViewModel.nama}"
             android:textAlignment="center"
             android:textSize="42dp"
@@ -49,9 +53,9 @@
             android:layout_height="wrap_content"
             app:cardCornerRadius="12dp"
             android:layout_below="@+id/nama"
-            android:backgroundTint="#0000ffff"
+            android:backgroundTint="#808080"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="35dp"
             android:background="@drawable/border">
 
             <LinearLayout
@@ -66,6 +70,7 @@
                     android:layout_height="wrap_content"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
+                    android:textColor="@color/black"
                     android:text="Jumlah"
                     android:textAlignment="center"
                     android:textSize="22dp"
@@ -74,6 +79,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/white"
                     android:background="@drawable/border"
                     android:text="@{String.valueOf(adminQueueViewModel.jumlah)}"
                     android:textAlignment="center"
@@ -88,9 +94,9 @@
             android:layout_marginBottom="50dp"
             app:cardCornerRadius="12dp"
             android:layout_below="@+id/jumlah"
-            android:backgroundTint="#0000ffff"
+            android:backgroundTint="#A9A9A9"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/border">
 
             <LinearLayout
@@ -104,6 +110,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
+                    android:textColor="@color/white"
                     android:text="Diproses"
                     android:textAlignment="center"
                     android:textSize="28dp"
@@ -113,6 +120,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingBottom="10dp"
+                    android:textColor="@color/black"
                     android:background="@drawable/border"
                     android:text="@{String.valueOf(adminQueueViewModel.nomor)}"
                     android:textAlignment="center"

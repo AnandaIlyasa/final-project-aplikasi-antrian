@@ -108,7 +108,7 @@ class AdminQueueFragment : Fragment() {
         builder.setCancelable(false)
         builder.setPositiveButton("Ya", DialogInterface.OnClickListener { dialogInterface, i ->
             Navigation.findNavController(binding.tutup).popBackStack()
-            Toast.makeText(context, "Menutup Antrian...", Toast.LENGTH_LONG).show()
+            Toast.makeText(context, "Menutup Antrian...", Toast.LENGTH_SHORT).show()
             (activity as MainActivity)!!.hapusAntrian()
         })
         builder.setNegativeButton("Tidak", DialogInterface.OnClickListener { dialogInterface, i ->

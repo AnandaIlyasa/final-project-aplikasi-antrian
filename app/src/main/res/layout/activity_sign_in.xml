@@ -19,7 +19,7 @@
             android:layout_width="250dp"
             android:layout_height="280dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="100dp"
             android:src="@drawable/login" />
 
         <androidx.cardview.widget.CardView
@@ -46,6 +46,7 @@
                     android:id="@+id/sign_with_google"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="18dp"
                     android:text="Sign In With Google" />
 
                 <ImageView
@@ -54,52 +55,6 @@
                     android:layout_marginStart="20dp"
                     android:layout_toRightOf="@+id/sign_with_google"
                     android:src="@drawable/iconfinder_logo_brand_brands_logos_google_2993685" />
-            </RelativeLayout>
-        </androidx.cardview.widget.CardView>
-
-        <TextView
-            android:id="@+id/or"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="OR"
-            android:textSize="20dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:layout_below="@id/google"/>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/login_facebook"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="24dp"
-            android:backgroundTint="#4267B2"
-            android:layout_marginTop="10dp"
-            android:enabled="true"
-            android:layout_below="@id/or"
-            android:textColor="@color/black"
-            app:cardCornerRadius="5dp">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical|center_horizontal"
-                android:padding="10dp">
-
-                <TextView
-                    android:id="@+id/sign"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:text="Sing In With Facebook" />
-
-                <ImageView
-                    android:layout_width="28dp"
-                    android:layout_height="22dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_toRightOf="@+id/sign"
-                    android:src="@drawable/iconfinder_facebook_834722" />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
